@@ -27,6 +27,7 @@ class CNN14(nn.Module):
         self.dropout = nn.Dropout(0.5)
 
     def forward(self, x):
+        x = x.to(next(self.parameters()).device)
         # First block
         x = F.relu(self.conv1(x)) # 32
         x = F.relu(self.conv2(x)) # 32
